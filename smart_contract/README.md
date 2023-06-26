@@ -17,7 +17,17 @@ Start the development server on `http://127.0.0.1:8545/`
 ```
 npm run compile
 npm run run-node
+```
+
+In another terminal, run this command:
+
+```
 npm run deploy-local
+```
+
+Set the returned contract address to environment variable `CONTRACT_ADDRESS`
+
+```
 npm run interact-local
 ```
 
