@@ -49,7 +49,7 @@ const currentPage = ref(1);
 const itemsPerPage = ref(5);
 const lastPage = donors.length / itemsPerPage.value;
 
-const setPage = (_itemsPerPage: number, pageNumber: number) => {
+const setPage = (_itemsPerPage: number, pageNumber: number): void => {
   currentPage.value = pageNumber;
 };
 </script>
