@@ -1,3 +1,4 @@
+import { ContractTransaction } from "ethers";
 import { crowdFundingContract } from "./createContract";
 
 async function editCampaign() {
@@ -11,7 +12,7 @@ async function editCampaign() {
       process.argv[6], // goal
       process.argv[7], // deadline
     )
-    .then((result: any) => {
+    .then((result: ContractTransaction) => {
       console.log("SUCCESS!... Mining in progress..");
       console.log(result);
     })
