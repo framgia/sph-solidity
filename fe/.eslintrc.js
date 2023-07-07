@@ -18,7 +18,6 @@ module.exports = {
   },
   plugins: ["@typescript-eslint", "vue"],
   rules: {
-    "no-console": "off",
     "@typescript-eslint/no-explicit-any": "warn",
     "vue/multi-word-component-names": "off",
     "vue/component-name-in-template-casing": [
