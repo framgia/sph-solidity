@@ -45,7 +45,7 @@ import { useWalletStore } from "~/store/wallet";
 const { middleTruncate } = useUtils();
 
 const isDropdownOpen = ref<boolean>(false);
-const useWallet: any = useWalletStore();
+const useWallet = useWalletStore();
 const { updateStatus } = useWallet;
 const { isConnected, address } = storeToRefs(useWallet);
 
