@@ -8,7 +8,8 @@ export default defineNuxtPlugin(async (app) => {
   const { isConnected } = storeToRefs(useWalletStore());
   const CONTRACT_ADDRESS = app.$config.public.CONTRACT_ADDRESS;
 
-  const ethereum = await (window as any).ethereum;
+  const ethereum = window.ethereum;
+
   const provider = new ethers.BrowserProvider(ethereum);
   const contractInterface = new ethers.BrowserProvider(ethereum);
   let smartContract: ethers.Contract | null = null;
@@ -21,7 +22,7 @@ export default defineNuxtPlugin(async (app) => {
         smartContract = new ethers.Contract(
           CONTRACT_ADDRESS as string,
           contract.abi,
-          signer,
+          signer
         );
 
         return smartContract;
@@ -41,13 +42,13 @@ export default defineNuxtPlugin(async (app) => {
       smartContract = new ethers.Contract(
         CONTRACT_ADDRESS as string,
         contract.abi,
-        signer,
+        signer
       );
     } catch (error) {}
   }
 
   smartContract?.on("CampaignCreated", (sender, title) => {
-    if (sender.toLowerCase() === ethereum.selectedAddress.toLowerCase()) {
+    if (sender.toLowerCase() === ethereum.selectedAddress?.toLowerCase()) {
       toast.success(`Campaign ${title} was successfully created!`);
     }
   });
