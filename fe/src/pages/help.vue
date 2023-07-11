@@ -124,7 +124,7 @@
           </div>
         </HelpSetup>
       </div>
-      <div class="flex space-x-2">
+      <div class="flex px-4 space-x-2">
         <BaseButton
           v-if="activeStep > 1"
           class="h-10 px-4 py-2 text-sm font-bold border border-1 text-primary-10 border-primary-10 rounded-md"
