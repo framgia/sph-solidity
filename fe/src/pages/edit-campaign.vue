@@ -118,9 +118,7 @@ const { value: story } = useField<CreateCampaignRequest["story"]>("story");
 const { value: goal } = useField<CreateCampaignRequest["goal"]>("goal");
 const { value: date } = useField<CreateCampaignRequest["date"]>("date");
 
-const handleBack = (): void => {
-  router.back();
-};
+const handleBack = () => router.back();
 
 const onSubmit = handleSubmit(() => {
   console.log(values);

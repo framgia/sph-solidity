@@ -29,7 +29,5 @@ const walletStore = useWalletStore();
 const { updateIsShowModal } = walletStore;
 const { isShowModal } = storeToRefs(walletStore);
 
-const handleClose = (): void => {
-  updateIsShowModal(false);
-};
+const handleClose = () => updateIsShowModal(false);
 </script>

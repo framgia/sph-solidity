@@ -89,9 +89,7 @@ const cardValueSample = ref<CampaignCardProps>(CardSample);
 const walletStore = useWalletStore();
 const { updateIsShowModal } = walletStore;
 
-const handleCloseModal = (): void => {
-  updateIsShowModal(false);
-};
+const handleCloseModal = () => updateIsShowModal(false);
 
 const { title, imgSrc, description, ethValue, daysLeft } =
   cardValueSample.value;

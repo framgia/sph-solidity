@@ -166,7 +166,5 @@ const handlePrevious = (): void => {
   }
 };
 
-const handleBack = (): void => {
-  router.back();
-};
+const handleBack = () => router.back();
 </script>

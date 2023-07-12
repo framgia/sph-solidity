@@ -15,14 +15,14 @@ export const useWalletStore = defineStore("walletStore", {
     isShowModal: false,
   }),
   actions: {
-    updateStatus(status: boolean, address: string): void {
+    updateStatus(status: boolean, address: string) {
       this.isConnected = status;
       this.address = address;
     },
-    updateBalance(balance: number): void {
+    updateBalance(balance: number) {
       this.balance = balance;
     },
-    updateIsShowModal(status: boolean): void {
+    updateIsShowModal(status: boolean) {
       this.isShowModal = status;
     },
   },

@@ -153,9 +153,7 @@ const useWallet = useWalletStore();
 const { isConnected } = storeToRefs(useWallet);
 const { updateIsShowModal } = useWallet;
 
-const handleCloseModal = (): void => {
-  updateIsShowModal(false);
-};
+const handleCloseModal = () => updateIsShowModal(false);
 
 const warning = (): void => {
   toast.warning("Connect wallet first!", { autoClose: 1500 });
