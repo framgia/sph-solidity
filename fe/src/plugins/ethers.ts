@@ -1,11 +1,8 @@
 import { ethers } from "ethers";
-import { storeToRefs } from "pinia";
 import { toast } from "vue3-toastify";
 import contract from "../assets/contract/CrowdFunding.json";
-import { useWalletStore } from "~/store/wallet";
 
 export default defineNuxtPlugin(async () => {
-  const { isConnected } = storeToRefs(useWalletStore());
   const CONTRACT_ADDRESS = "0x402BFe8c29aC35947416a94b42de8e87CE20FAB4";
 
   const ethereum = window.ethereum;
@@ -15,28 +12,23 @@ export default defineNuxtPlugin(async () => {
   let signer = null;
 
   const getSmartContract = async () => {
-    if (ethereum?.selectedAddress !== null) {
-      try {
-        signer = await provider.getSigner();
-        smartContract = new ethers.Contract(
-          CONTRACT_ADDRESS as string,
-          contract.abi,
-          signer,
-        );
+    try {
+      signer = await provider.getSigner();
+      smartContract = new ethers.Contract(
+        CONTRACT_ADDRESS as string,
+        contract.abi,
+        signer,
+      );
 
-        return smartContract;
-      } catch (error) {
-        const walletConnectionError = "UNKNOWN_ERROR";
+      return smartContract;
+    } catch (error) {
+      const walletConnectionError = "UNKNOWN_ERROR";
 
-        if ((error as { code: string }).code === walletConnectionError) {
-          toast.error("Wallet connection failed!");
-        } else {
-          toast.error("Something went wrong!");
-        }
-        return null;
+      if ((error as { code: string }).code === walletConnectionError) {
+        toast.error("Wallet connection failed!");
+      } else {
+        toast.error("Something went wrong!");
       }
-    } else {
-      isConnected.value = false;
       return null;
     }
   };
