@@ -14,9 +14,6 @@ export default defineNuxtPlugin(async () => {
   let signer = null;
   let isListenerExecuted = false;
 
-  const walletStore = useWalletStore();
-  const { getRecentCampaigns } = walletStore;
-
   const getSmartContract = async () => {
     if (ethereum?.selectedAddress !== null) {
       try {
@@ -73,7 +70,6 @@ export default defineNuxtPlugin(async () => {
         isListenerExecuted = true;
         toast.success(`Campaign ${title} was successfully created!`);
         useWalletStore().updateState();
-        getRecentCampaigns(6, getSmartContract);
         clearListener();
       }
     }
